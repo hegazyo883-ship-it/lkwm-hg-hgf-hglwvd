@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Cairo', 'Segoe UI', 'Tahoma', sans-serif;
+  }
+  body {
+    @apply antialiased bg-slate-50 text-slate-900;
+    background-image: radial-gradient(circle at 10% 0%, rgba(14, 165, 233, 0.07), transparent 28rem), radial-gradient(circle at 90% 10%, rgba(20, 184, 166, 0.06), transparent 24rem);
+  }
+  button, input, textarea, select {
+    font: inherit;
+  }
+  ::selection {
+    @apply bg-cyan-200 text-slate-900;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-shadow duration-300;
+  }
+  .surface-card:hover {
+    @apply shadow-md;
+  }
+  .section-label {
+    @apply text-xs font-bold uppercase tracking-wide text-slate-400;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-800;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-500;
+}
+
+/* Grid pattern */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Ramadan animations */
+@keyframes swing {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+.animate-swing {
+  animation: swing 3s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 4px 2px rgba(251, 191, 36, 0.6); }
+  50% { box-shadow: 0 0 12px 4px rgba(251, 191, 36, 0.9); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* October animations */
+@keyframes wave {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+.animate-wave {
+  animation: wave 3s ease-in-out infinite;
+}
+
+@keyframes fade-in-slow {
+  from { opacity: 0; }
+  to { opacity: 0.6; }
+}
+.animate-fade-in-slow {
+  animation: fade-in-slow 3s ease-in-out forwards;
+}
